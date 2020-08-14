@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+http://www.springframework.org/schema/beans/spring-beans.xsd
+http://www.springframework.org/schema/aop
+http://www.springframework.org/schema/aop/spring-aop.xsd"
+	default-autowire="byName">
+
+	<bean id="teacher" class="com.test.Teacher"></bean>
+
+	<bean id="people" class="com.test.People" autowire="byName">
+		<!-- <property name="teacher" ref="teacher"></property> --> <!-- 传统的赋值语句 -->
+		<!-- autowire="default" 引用上面设置的值 -->
+		<!-- autowire="byName" 找其他bean的ID -->
+		<!-- autowire="byType" 找其他bean的type，如果有多个一样的类型会报错 -->
+		<!-- autowire="constructor" 和byName一样，不过构造方法的参数名称要和bean的Id相等 -->
+	</bean>
+	<bean id="people1" class="com.test.People" autowire="byType"></bean>
+	<bean id="people2" class="com.test.People" autowire="byName"></bean>
+</beans>
